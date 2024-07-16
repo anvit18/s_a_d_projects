@@ -1,188 +1,506 @@
 {
-  "type": "object",
-  "properties": {
-    "COUNTRY": {
-      "type": "object",
-      "properties": {
-        "COUNTRY_ID": { "type": "integer" },
-        "COUNTRY": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+  "COUNTRY": {
+    "columns": [
+      {
+        "name": "COUNTRY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
-      "required": ["COUNTRY_ID", "COUNTRY", "LAST_UPDATE"]
-    },
-    "CITY": {
-      "type": "object",
-      "properties": {
-        "CITY_ID": { "type": "integer" },
-        "CITY": { "type": "string" },
-        "COUNTRY_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "COUNTRY",
+        "type": "VARCHAR(50)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": ["CITY_ID", "CITY", "COUNTRY_ID", "LAST_UPDATE"]
-    },
-    "ADDRESS": {
-      "type": "object",
-      "properties": {
-        "ADDRESS_ID": { "type": "integer" },
-        "ADDRESS": { "type": "string" },
-        "ADDRESS2": { "type": "string" },
-        "DISTRICT": { "type": "string" },
-        "CITY_ID": { "type": "integer" },
-        "POSTAL_CODE": { "type": "string" },
-        "PHONE": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "CITY": {
+    "columns": [
+      {
+        "name": "CITY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
-      "required": ["ADDRESS_ID", "ADDRESS", "CITY_ID", "LAST_UPDATE"]
-    },
-    "STORE": {
-      "type": "object",
-      "properties": {
-        "STORE_ID": { "type": "integer" },
-        "ADDRESS_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "CITY",
+        "type": "VARCHAR(50)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": ["STORE_ID", "ADDRESS_ID", "LAST_UPDATE"]
-    },
-    "LANGUAGE": {
-      "type": "object",
-      "properties": {
-        "LANGUAGE_ID": { "type": "integer" },
-        "NAME": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "COUNTRY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "foreign_key": {
+          "reference_table": "COUNTRY",
+          "reference_column": "COUNTRY_ID"
+        },
+        "comment": "Foreign key referencing COUNTRY_ID in COUNTRY"
       },
-      "required": ["LANGUAGE_ID", "NAME", "LAST_UPDATE"]
-    },
-    "CATEGORY": {
-      "type": "object",
-      "properties": {
-        "CATEGORY_ID": { "type": "integer" },
-        "NAME": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "ADDRESS": {
+    "columns": [
+      {
+        "name": "ADDRESS_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
-      "required": ["CATEGORY_ID", "NAME", "LAST_UPDATE"]
-    },
-    "FILM": {
-      "type": "object",
-      "properties": {
-        "FILM_ID": { "type": "integer" },
-        "TITLE": { "type": "string" },
-        "DESCRIPTION": { "type": "string" },
-        "RELEASE_YEAR": { "type": "integer" },
-        "LANGUAGE_ID": { "type": "integer" },
-        "ORIGINAL_LANGUAGE_ID": { "type": "integer" },
-        "RENTAL_DURATION": { "type": "integer" },
-        "RENTAL_RATE": { "type": "number" },
-        "LENGTH": { "type": "integer" },
-        "REPLACEMENT_COST": { "type": "number" },
-        "RATING": { "type": "string" },
-        "SPECIAL_FEATURES": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "ADDRESS",
+        "type": "VARCHAR(100)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": [
-        "FILM_ID", "TITLE", "DESCRIPTION", "RELEASE_YEAR", "LANGUAGE_ID",
-        "RENTAL_DURATION", "RENTAL_RATE", "LENGTH", "REPLACEMENT_COST", "LAST_UPDATE"
-      ]
-    },
-    "ACTOR": {
-      "type": "object",
-      "properties": {
-        "ACTOR_ID": { "type": "integer" },
-        "FIRST_NAME": { "type": "string" },
-        "LAST_NAME": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "ADDRESS2",
+        "type": "VARCHAR(100)",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": ["ACTOR_ID", "FIRST_NAME", "LAST_NAME", "LAST_UPDATE"]
-    },
-    "FILM_ACTOR": {
-      "type": "object",
-      "properties": {
-        "FILM_ID": { "type": "integer" },
-        "ACTOR_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "DISTRICT",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": ["FILM_ID", "ACTOR_ID", "LAST_UPDATE"]
-    },
-    "FILM_CATEGORY": {
-      "type": "object",
-      "properties": {
-        "FILM_ID": { "type": "integer" },
-        "CATEGORY_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "CITY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "foreign_key": {
+          "reference_table": "CITY",
+          "reference_column": "CITY_ID"
+        },
+        "comment": "Foreign key referencing CITY_ID in CITY"
       },
-      "required": ["FILM_ID", "CATEGORY_ID", "LAST_UPDATE"]
-    },
-    "INVENTORY": {
-      "type": "object",
-      "properties": {
-        "INVENTORY_ID": { "type": "integer" },
-        "FILM_ID": { "type": "integer" },
-        "STORE_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "POSTAL_CODE",
+        "type": "VARCHAR(10)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": ["INVENTORY_ID", "FILM_ID", "STORE_ID", "LAST_UPDATE"]
-    },
-    "CUSTOMER": {
-      "type": "object",
-      "properties": {
-        "CUSTOMER_ID": { "type": "integer" },
-        "STORE_ID": { "type": "integer" },
-        "FIRST_NAME": { "type": "string" },
-        "LAST_NAME": { "type": "string" },
-        "EMAIL": { "type": "string" },
-        "ADDRESS_ID": { "type": "integer" },
-        "ACTIVE": { "type": "integer" },
-        "CREATE_DATE": { "type": "string", "format": "date-time" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "PHONE",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
       },
-      "required": [
-        "CUSTOMER_ID", "STORE_ID", "FIRST_NAME", "LAST_NAME", "ADDRESS_ID",
-        "ACTIVE", "CREATE_DATE", "LAST_UPDATE"
-      ]
-    },
-    "STAFF": {
-      "type": "object",
-      "properties": {
-        "STAFF_ID": { "type": "integer" },
-        "FIRST_NAME": { "type": "string" },
-        "LAST_NAME": { "type": "string" },
-        "ADDRESS_ID": { "type": "integer" },
-        "EMAIL": { "type": "string" },
-        "STORE_ID": { "type": "integer" },
-        "ACTIVE": { "type": "integer" },
-        "USERNAME": { "type": "string" },
-        "PASSWORD": { "type": "string" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "STORE": {
+    "columns": [
+      {
+        "name": "STORE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
-      "required": [
-        "STAFF_ID", "FIRST_NAME", "LAST_NAME", "ADDRESS_ID", "STORE_ID",
-        "ACTIVE", "USERNAME", "PASSWORD", "LAST_UPDATE"
-      ]
-    },
-    "RENTAL": {
-      "type": "object",
-      "properties": {
-        "RENTAL_ID": { "type": "integer" },
-        "RENTAL_DATE": { "type": "string", "format": "date-time" },
-        "INVENTORY_ID": { "type": "integer" },
-        "CUSTOMER_ID": { "type": "integer" },
-        "RETURN_DATE": { "type": "string", "format": "date-time" },
-        "STAFF_ID": { "type": "integer" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "ADDRESS_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "foreign_key": {
+          "reference_table": "ADDRESS",
+          "reference_column": "ADDRESS_ID"
+        },
+        "comment": "Foreign key referencing ADDRESS_ID in ADDRESS"
       },
-      "required": ["RENTAL_ID", "RENTAL_DATE", "INVENTORY_ID", "CUSTOMER_ID", "STAFF_ID", "LAST_UPDATE"]
-    },
-    "PAYMENT": {
-      "type": "object",
-      "properties": {
-        "PAYMENT_ID": { "type": "integer" },
-        "CUSTOMER_ID": { "type": "integer" },
-        "STAFF_ID": { "type": "integer" },
-        "RENTAL_ID": { "type": "integer" },
-        "AMOUNT": { "type": "number" },
-        "PAYMENT_DATE": { "type": "string", "format": "date-time" },
-        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "LANGUAGE": {
+    "columns": [
+      {
+        "name": "LANGUAGE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
-      "required": ["PAYMENT_ID", "CUSTOMER_ID", "STAFF_ID", "RENTAL_ID", "AMOUNT", "PAYMENT_DATE", "LAST_UPDATE"]
-    }
+      {
+        "name": "NAME",
+        "type": "VARCHAR(20)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "CATEGORY": {
+    "columns": [
+      {
+        "name": "CATEGORY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "NAME",
+        "type": "VARCHAR(25)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "FILM": {
+    "columns": [
+      {
+        "name": "FILM_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "TITLE",
+        "type": "VARCHAR(100)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "DESCRIPTION",
+        "type": "TEXT",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "RELEASE_YEAR",
+        "type": "YEAR",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LANGUAGE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "foreign_key": {
+          "reference_table": "LANGUAGE",
+          "reference_column": "LANGUAGE_ID"
+        },
+        "comment": "Foreign key referencing LANGUAGE_ID in LANGUAGE"
+      },
+      {
+        "name": "ORIGINAL_LANGUAGE_ID",
+        "type": "INTEGER",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "foreign_key": {
+          "reference_table": "LANGUAGE",
+          "reference_column": "LANGUAGE_ID"
+        },
+        "comment": "Foreign key referencing LANGUAGE_ID in LANGUAGE"
+      },
+      {
+        "name": "RENTAL_DURATION",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "RENTAL_RATE",
+        "type": "DECIMAL(4,2)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LENGTH",
+        "type": "INTEGER",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "REPLACEMENT_COST",
+        "type": "DECIMAL(5,2)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "RATING",
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "default": "G",
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "SPECIAL_FEATURES",
+        "type": "SET('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "FULLTEXT",
+        "type": "TEXT",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "ACTOR": {
+    "columns": [
+      {
+        "name": "ACTOR_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "primary_key": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "FIRST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "FILM_ACTOR": {
+    "columns": [
+      {
+        "name": "ACTOR_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "primary_key": true,
+        "foreign_key": {
+          "reference_table": "ACTOR",
+          "reference_column": "ACTOR_ID"
+        },
+        "comment": "Primary key and foreign key referencing ACTOR_ID in ACTOR"
+      },
+      {
+        "name": "FILM_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "primary_key": true,
+        "foreign_key": {
+          "reference_table": "FILM",
+          "reference_column": "FILM_ID"
+        },
+        "comment": "Primary key and foreign key referencing FILM_ID in FILM"
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
+  },
+  "FILM_CATEGORY": {
+    "columns": [
+      {
+        "name": "FILM_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "primary_key": true,
+        "foreign_key": {
+          "reference_table": "FILM",
+          "reference_column": "FILM_ID"
+        },
+        "comment": "Primary key and foreign key referencing FILM_ID in FILM"
+      },
+      {
+        "name": "CATEGORY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "primary_key": true,
+        "foreign_key": {
+          "reference_table": "CATEGORY",
+          "reference_column": "CATEGORY_ID"
+        },
+        "comment": "Primary key and foreign key referencing CATEGORY_ID in CATEGORY"
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ]
   }
 }
