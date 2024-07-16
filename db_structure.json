@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "properties": {
+    "COUNTRY": {
+      "type": "object",
+      "properties": {
+        "COUNTRY_ID": { "type": "integer" },
+        "COUNTRY": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["COUNTRY_ID", "COUNTRY", "LAST_UPDATE"]
+    },
+    "CITY": {
+      "type": "object",
+      "properties": {
+        "CITY_ID": { "type": "integer" },
+        "CITY": { "type": "string" },
+        "COUNTRY_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["CITY_ID", "CITY", "COUNTRY_ID", "LAST_UPDATE"]
+    },
+    "ADDRESS": {
+      "type": "object",
+      "properties": {
+        "ADDRESS_ID": { "type": "integer" },
+        "ADDRESS": { "type": "string" },
+        "ADDRESS2": { "type": "string" },
+        "DISTRICT": { "type": "string" },
+        "CITY_ID": { "type": "integer" },
+        "POSTAL_CODE": { "type": "string" },
+        "PHONE": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["ADDRESS_ID", "ADDRESS", "CITY_ID", "LAST_UPDATE"]
+    },
+    "STORE": {
+      "type": "object",
+      "properties": {
+        "STORE_ID": { "type": "integer" },
+        "ADDRESS_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["STORE_ID", "ADDRESS_ID", "LAST_UPDATE"]
+    },
+    "LANGUAGE": {
+      "type": "object",
+      "properties": {
+        "LANGUAGE_ID": { "type": "integer" },
+        "NAME": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["LANGUAGE_ID", "NAME", "LAST_UPDATE"]
+    },
+    "CATEGORY": {
+      "type": "object",
+      "properties": {
+        "CATEGORY_ID": { "type": "integer" },
+        "NAME": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["CATEGORY_ID", "NAME", "LAST_UPDATE"]
+    },
+    "FILM": {
+      "type": "object",
+      "properties": {
+        "FILM_ID": { "type": "integer" },
+        "TITLE": { "type": "string" },
+        "DESCRIPTION": { "type": "string" },
+        "RELEASE_YEAR": { "type": "integer" },
+        "LANGUAGE_ID": { "type": "integer" },
+        "ORIGINAL_LANGUAGE_ID": { "type": "integer" },
+        "RENTAL_DURATION": { "type": "integer" },
+        "RENTAL_RATE": { "type": "number" },
+        "LENGTH": { "type": "integer" },
+        "REPLACEMENT_COST": { "type": "number" },
+        "RATING": { "type": "string" },
+        "SPECIAL_FEATURES": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "FILM_ID", "TITLE", "DESCRIPTION", "RELEASE_YEAR", "LANGUAGE_ID",
+        "RENTAL_DURATION", "RENTAL_RATE", "LENGTH", "REPLACEMENT_COST", "LAST_UPDATE"
+      ]
+    },
+    "ACTOR": {
+      "type": "object",
+      "properties": {
+        "ACTOR_ID": { "type": "integer" },
+        "FIRST_NAME": { "type": "string" },
+        "LAST_NAME": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["ACTOR_ID", "FIRST_NAME", "LAST_NAME", "LAST_UPDATE"]
+    },
+    "FILM_ACTOR": {
+      "type": "object",
+      "properties": {
+        "FILM_ID": { "type": "integer" },
+        "ACTOR_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["FILM_ID", "ACTOR_ID", "LAST_UPDATE"]
+    },
+    "FILM_CATEGORY": {
+      "type": "object",
+      "properties": {
+        "FILM_ID": { "type": "integer" },
+        "CATEGORY_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["FILM_ID", "CATEGORY_ID", "LAST_UPDATE"]
+    },
+    "INVENTORY": {
+      "type": "object",
+      "properties": {
+        "INVENTORY_ID": { "type": "integer" },
+        "FILM_ID": { "type": "integer" },
+        "STORE_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["INVENTORY_ID", "FILM_ID", "STORE_ID", "LAST_UPDATE"]
+    },
+    "CUSTOMER": {
+      "type": "object",
+      "properties": {
+        "CUSTOMER_ID": { "type": "integer" },
+        "STORE_ID": { "type": "integer" },
+        "FIRST_NAME": { "type": "string" },
+        "LAST_NAME": { "type": "string" },
+        "EMAIL": { "type": "string" },
+        "ADDRESS_ID": { "type": "integer" },
+        "ACTIVE": { "type": "integer" },
+        "CREATE_DATE": { "type": "string", "format": "date-time" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "CUSTOMER_ID", "STORE_ID", "FIRST_NAME", "LAST_NAME", "ADDRESS_ID",
+        "ACTIVE", "CREATE_DATE", "LAST_UPDATE"
+      ]
+    },
+    "STAFF": {
+      "type": "object",
+      "properties": {
+        "STAFF_ID": { "type": "integer" },
+        "FIRST_NAME": { "type": "string" },
+        "LAST_NAME": { "type": "string" },
+        "ADDRESS_ID": { "type": "integer" },
+        "EMAIL": { "type": "string" },
+        "STORE_ID": { "type": "integer" },
+        "ACTIVE": { "type": "integer" },
+        "USERNAME": { "type": "string" },
+        "PASSWORD": { "type": "string" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "STAFF_ID", "FIRST_NAME", "LAST_NAME", "ADDRESS_ID", "STORE_ID",
+        "ACTIVE", "USERNAME", "PASSWORD", "LAST_UPDATE"
+      ]
+    },
+    "RENTAL": {
+      "type": "object",
+      "properties": {
+        "RENTAL_ID": { "type": "integer" },
+        "RENTAL_DATE": { "type": "string", "format": "date-time" },
+        "INVENTORY_ID": { "type": "integer" },
+        "CUSTOMER_ID": { "type": "integer" },
+        "RETURN_DATE": { "type": "string", "format": "date-time" },
+        "STAFF_ID": { "type": "integer" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["RENTAL_ID", "RENTAL_DATE", "INVENTORY_ID", "CUSTOMER_ID", "STAFF_ID", "LAST_UPDATE"]
+    },
+    "PAYMENT": {
+      "type": "object",
+      "properties": {
+        "PAYMENT_ID": { "type": "integer" },
+        "CUSTOMER_ID": { "type": "integer" },
+        "STAFF_ID": { "type": "integer" },
+        "RENTAL_ID": { "type": "integer" },
+        "AMOUNT": { "type": "number" },
+        "PAYMENT_DATE": { "type": "string", "format": "date-time" },
+        "LAST_UPDATE": { "type": "string", "format": "date-time" }
+      },
+      "required": ["PAYMENT_ID", "CUSTOMER_ID", "STAFF_ID", "RENTAL_ID", "AMOUNT", "PAYMENT_DATE", "LAST_UPDATE"]
+    }
+  }
+}
