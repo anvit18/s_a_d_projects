@@ -7,7 +7,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -30,7 +29,13 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "COUNTRY_PK",
+      "constrained_columns": ["COUNTRY_ID"]
+    },
+    "foreign_keys": [],
+    "indexes": []
   },
   "CITY": {
     "columns": [
@@ -40,7 +45,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -61,10 +65,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "foreign_key": {
-          "reference_table": "COUNTRY",
-          "reference_column": "COUNTRY_ID"
-        },
         "comment": "Foreign key referencing COUNTRY_ID in COUNTRY"
       },
       {
@@ -75,7 +75,20 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "CITY_PK",
+      "constrained_columns": ["CITY_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "CITY_COUNTRY_FK",
+        "column_names": ["COUNTRY_ID"],
+        "reference_table": "COUNTRY",
+        "reference_column": ["COUNTRY_ID"]
+      }
+    ],
+    "indexes": []
   },
   "ADDRESS": {
     "columns": [
@@ -85,7 +98,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -122,10 +134,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "foreign_key": {
-          "reference_table": "CITY",
-          "reference_column": "CITY_ID"
-        },
         "comment": "Foreign key referencing CITY_ID in CITY"
       },
       {
@@ -152,7 +160,20 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "ADDRESS_PK",
+      "constrained_columns": ["ADDRESS_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "ADDRESS_CITY_FK",
+        "column_names": ["CITY_ID"],
+        "reference_table": "CITY",
+        "reference_column": ["CITY_ID"]
+      }
+    ],
+    "indexes": []
   },
   "STORE": {
     "columns": [
@@ -162,7 +183,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -175,10 +195,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "foreign_key": {
-          "reference_table": "ADDRESS",
-          "reference_column": "ADDRESS_ID"
-        },
         "comment": "Foreign key referencing ADDRESS_ID in ADDRESS"
       },
       {
@@ -189,7 +205,20 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "STORE_PK",
+      "constrained_columns": ["STORE_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "STORE_ADDRESS_FK",
+        "column_names": ["ADDRESS_ID"],
+        "reference_table": "ADDRESS",
+        "reference_column": ["ADDRESS_ID"]
+      }
+    ],
+    "indexes": []
   },
   "LANGUAGE": {
     "columns": [
@@ -199,7 +228,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -222,7 +250,13 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "LANGUAGE_PK",
+      "constrained_columns": ["LANGUAGE_ID"]
+    },
+    "foreign_keys": [],
+    "indexes": []
   },
   "CATEGORY": {
     "columns": [
@@ -232,7 +266,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -255,7 +288,13 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "CATEGORY_PK",
+      "constrained_columns": ["CATEGORY_ID"]
+    },
+    "foreign_keys": [],
+    "indexes": []
   },
   "FILM": {
     "columns": [
@@ -265,7 +304,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -302,10 +340,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "foreign_key": {
-          "reference_table": "LANGUAGE",
-          "reference_column": "LANGUAGE_ID"
-        },
         "comment": "Foreign key referencing LANGUAGE_ID in LANGUAGE"
       },
       {
@@ -314,17 +348,13 @@
         "nullable": true,
         "default": null,
         "autoincrement": false,
-        "foreign_key": {
-          "reference_table": "LANGUAGE",
-          "reference_column": "LANGUAGE_ID"
-        },
         "comment": "Foreign key referencing LANGUAGE_ID in LANGUAGE"
       },
       {
         "name": "RENTAL_DURATION",
         "type": "INTEGER",
         "nullable": false,
-        "default": null,
+        "default": 3,
         "autoincrement": false,
         "comment": null
       },
@@ -332,7 +362,7 @@
         "name": "RENTAL_RATE",
         "type": "DECIMAL(4,2)",
         "nullable": false,
-        "default": null,
+        "default": 4.99,
         "autoincrement": false,
         "comment": null
       },
@@ -348,7 +378,7 @@
         "name": "REPLACEMENT_COST",
         "type": "DECIMAL(5,2)",
         "nullable": false,
-        "default": null,
+        "default": 19.99,
         "autoincrement": false,
         "comment": null
       },
@@ -361,14 +391,6 @@
         "comment": null
       },
       {
-        "name": "LAST_UPDATE",
-        "type": "DATETIME",
-        "nullable": false,
-        "default": "GETDATE()",
-        "autoincrement": false,
-        "comment": null
-      },
-      {
         "name": "SPECIAL_FEATURES",
         "type": "SET('Trailers','Commentaries','Deleted Scenes','Behind the Scenes')",
         "nullable": true,
@@ -377,14 +399,127 @@
         "comment": null
       },
       {
-        "name": "FULLTEXT",
-        "type": "TEXT",
-        "nullable": true,
-        "default": null,
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "FILM_PK",
+      "constrained_columns": ["FILM_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "FILM_LANGUAGE_FK",
+        "column_names": ["LANGUAGE_ID"],
+        "reference_table": "LANGUAGE",
+        "reference_column": ["LANGUAGE_ID"]
+      },
+      {
+        "name": "FILM_ORIGINAL_LANGUAGE_FK",
+        "column_names": ["ORIGINAL_LANGUAGE_ID"],
+        "reference_table": "LANGUAGE",
+        "reference_column": ["LANGUAGE_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "FILM_ACTOR": {
+    "columns": [
+      {
+        "name": "ACTOR_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing ACTOR_ID in ACTOR"
+      },
+      {
+        "name": "FILM_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing FILM_ID in FILM"
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "FILM_ACTOR_PK",
+      "constrained_columns": ["ACTOR_ID", "FILM_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "FILM_ACTOR_ACTOR_FK",
+        "column_names": ["ACTOR_ID"],
+        "reference_table": "ACTOR",
+        "reference_column": ["ACTOR_ID"]
+      },
+      {
+        "name": "FILM_ACTOR_FILM_FK",
+        "column_names": ["FILM_ID"],
+        "reference_table": "FILM",
+        "reference_column": ["FILM_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "FILM_CATEGORY": {
+    "columns": [
+      {
+        "name": "FILM_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing FILM_ID in FILM"
+      },
+      {
+        "name": "CATEGORY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing CATEGORY_ID in CATEGORY"
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "FILM_CATEGORY_PK",
+      "constrained_columns": ["FILM_ID", "CATEGORY_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "FILM_CATEGORY_FILM_FK",
+        "column_names": ["FILM_ID"],
+        "reference_table": "FILM",
+        "reference_column": ["FILM_ID"]
+      },
+      {
+        "name": "FILM_CATEGORY_CATEGORY_FK",
+        "column_names": ["CATEGORY_ID"],
+        "reference_table": "CATEGORY",
+        "reference_column": ["CATEGORY_ID"]
+      }
+    ],
+    "indexes": []
   },
   "ACTOR": {
     "columns": [
@@ -394,7 +529,6 @@
         "nullable": false,
         "default": null,
         "autoincrement": true,
-        "primary_key": true,
         "comment": null,
         "identity": {
           "start": 1,
@@ -425,22 +559,61 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "ACTOR_PK",
+      "constrained_columns": ["ACTOR_ID"]
+    },
+    "foreign_keys": [],
+    "indexes": []
   },
-  "FILM_ACTOR": {
+  "FILM_TEXT": {
     "columns": [
       {
-        "name": "ACTOR_ID",
+        "name": "FILM_ID",
         "type": "INTEGER",
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "primary_key": true,
-        "foreign_key": {
-          "reference_table": "ACTOR",
-          "reference_column": "ACTOR_ID"
-        },
-        "comment": "Primary key and foreign key referencing ACTOR_ID in ACTOR"
+        "comment": "Primary key"
+      },
+      {
+        "name": "TITLE",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "DESCRIPTION",
+        "type": "TEXT",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "FILM_TEXT_PK",
+      "constrained_columns": ["FILM_ID"]
+    },
+    "foreign_keys": [],
+    "indexes": []
+  },
+  "INVENTORY": {
+    "columns": [
+      {
+        "name": "INVENTORY_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
       },
       {
         "name": "FILM_ID",
@@ -448,12 +621,15 @@
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "primary_key": true,
-        "foreign_key": {
-          "reference_table": "FILM",
-          "reference_column": "FILM_ID"
-        },
-        "comment": "Primary key and foreign key referencing FILM_ID in FILM"
+        "comment": "Foreign key referencing FILM_ID in FILM"
+      },
+      {
+        "name": "STORE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STORE_ID in STORE"
       },
       {
         "name": "LAST_UPDATE",
@@ -463,35 +639,80 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
-  },
-  "FILM_CATEGORY": {
-    "columns": [
+    ],
+    "primary_keys": {
+      "name": "INVENTORY_PK",
+      "constrained_columns": ["INVENTORY_ID"]
+    },
+    "foreign_keys": [
       {
-        "name": "FILM_ID",
-        "type": "INTEGER",
-        "nullable": false,
-        "default": null,
-        "autoincrement": false,
-        "primary_key": true,
-        "foreign_key": {
-          "reference_table": "FILM",
-          "reference_column": "FILM_ID"
-        },
-        "comment": "Primary key and foreign key referencing FILM_ID in FILM"
+        "name": "INVENTORY_FILM_FK",
+        "column_names": ["FILM_ID"],
+        "reference_table": "FILM",
+        "reference_column": ["FILM_ID"]
       },
       {
-        "name": "CATEGORY_ID",
+        "name": "INVENTORY_STORE_FK",
+        "column_names": ["STORE_ID"],
+        "reference_table": "STORE",
+        "reference_column": ["STORE_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "RENTAL": {
+    "columns": [
+      {
+        "name": "RENTAL_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "RENTAL_DATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "INVENTORY_ID",
         "type": "INTEGER",
         "nullable": false,
         "default": null,
         "autoincrement": false,
-        "primary_key": true,
-        "foreign_key": {
-          "reference_table": "CATEGORY",
-          "reference_column": "CATEGORY_ID"
-        },
-        "comment": "Primary key and foreign key referencing CATEGORY_ID in CATEGORY"
+        "comment": "Foreign key referencing INVENTORY_ID in INVENTORY"
+      },
+      {
+        "name": "CUSTOMER_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing CUSTOMER_ID in CUSTOMER"
+      },
+      {
+        "name": "RETURN_DATE",
+        "type": "DATETIME",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "STAFF_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STAFF_ID in STAFF"
       },
       {
         "name": "LAST_UPDATE",
@@ -501,6 +722,377 @@
         "autoincrement": false,
         "comment": null
       }
-    ]
+    ],
+    "primary_keys": {
+      "name": "RENTAL_PK",
+      "constrained_columns": ["RENTAL_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "RENTAL_INVENTORY_FK",
+        "column_names": ["INVENTORY_ID"],
+        "reference_table": "INVENTORY",
+        "reference_column": ["INVENTORY_ID"]
+      },
+      {
+        "name": "RENTAL_CUSTOMER_FK",
+        "column_names": ["CUSTOMER_ID"],
+        "reference_table": "CUSTOMER",
+        "reference_column": ["CUSTOMER_ID"]
+      },
+      {
+        "name": "RENTAL_STAFF_FK",
+        "column_names": ["STAFF_ID"],
+        "reference_table": "STAFF",
+        "reference_column": ["STAFF_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "PAYMENT": {
+    "columns": [
+      {
+        "name": "PAYMENT_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "CUSTOMER_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing CUSTOMER_ID in CUSTOMER"
+      },
+      {
+        "name": "STAFF_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STAFF_ID in STAFF"
+      },
+      {
+        "name": "RENTAL_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing RENTAL_ID in RENTAL"
+      },
+      {
+        "name": "AMOUNT",
+        "type": "DECIMAL(5,2)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "PAYMENT_DATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "PAYMENT_PK",
+      "constrained_columns": ["PAYMENT_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "PAYMENT_CUSTOMER_FK",
+        "column_names": ["CUSTOMER_ID"],
+        "reference_table": "CUSTOMER",
+        "reference_column": ["CUSTOMER_ID"]
+      },
+      {
+        "name": "PAYMENT_STAFF_FK",
+        "column_names": ["STAFF_ID"],
+        "reference_table": "STAFF",
+        "reference_column": ["STAFF_ID"]
+      },
+      {
+        "name": "PAYMENT_RENTAL_FK",
+        "column_names": ["RENTAL_ID"],
+        "reference_table": "RENTAL",
+        "reference_column": ["RENTAL_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "CUSTOMER": {
+    "columns": [
+      {
+        "name": "CUSTOMER_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "STORE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STORE_ID in STORE"
+      },
+      {
+        "name": "FIRST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "EMAIL",
+        "type": "VARCHAR(50)",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "ADDRESS_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing ADDRESS_ID in ADDRESS"
+      },
+      {
+        "name": "ACTIVE",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "default": true,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "CREATE_DATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": true,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "CUSTOMER_PK",
+      "constrained_columns": ["CUSTOMER_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "CUSTOMER_STORE_FK",
+        "column_names": ["STORE_ID"],
+        "reference_table": "STORE",
+        "reference_column": ["STORE_ID"]
+      },
+      {
+        "name": "CUSTOMER_ADDRESS_FK",
+        "column_names": ["ADDRESS_ID"],
+        "reference_table": "ADDRESS",
+        "reference_column": ["ADDRESS_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "STAFF": {
+    "columns": [
+      {
+        "name": "STAFF_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "FIRST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_NAME",
+        "type": "VARCHAR(45)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "ADDRESS_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing ADDRESS_ID in ADDRESS"
+      },
+      {
+        "name": "EMAIL",
+        "type": "VARCHAR(50)",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "STORE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STORE_ID in STORE"
+      },
+      {
+        "name": "ACTIVE",
+        "type": "BOOLEAN",
+        "nullable": false,
+        "default": true,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "USERNAME",
+        "type": "VARCHAR(16)",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "PASSWORD",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "default": null,
+        "autoincrement": false,
+        "comment": null
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "STAFF_PK",
+      "constrained_columns": ["STAFF_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "STAFF_ADDRESS_FK",
+        "column_names": ["ADDRESS_ID"],
+        "reference_table": "ADDRESS",
+        "reference_column": ["ADDRESS_ID"]
+      },
+      {
+        "name": "STAFF_STORE_FK",
+        "column_names": ["STORE_ID"],
+        "reference_table": "STORE",
+        "reference_column": ["STORE_ID"]
+      }
+    ],
+    "indexes": []
+  },
+  "STORE": {
+    "columns": [
+      {
+        "name": "STORE_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": true,
+        "comment": null,
+        "identity": {
+          "start": 1,
+          "increment": 1
+        }
+      },
+      {
+        "name": "MANAGER_STAFF_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing STAFF_ID in STAFF"
+      },
+      {
+        "name": "ADDRESS_ID",
+        "type": "INTEGER",
+        "nullable": false,
+        "default": null,
+        "autoincrement": false,
+        "comment": "Foreign key referencing ADDRESS_ID in ADDRESS"
+      },
+      {
+        "name": "LAST_UPDATE",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": "GETDATE()",
+        "autoincrement": false,
+        "comment": null
+      }
+    ],
+    "primary_keys": {
+      "name": "STORE_PK",
+      "constrained_columns": ["STORE_ID"]
+    },
+    "foreign_keys": [
+      {
+        "name": "STORE_MANAGER_FK",
+        "column_names": ["MANAGER_STAFF_ID"],
+        "reference_table": "STAFF",
+        "reference_column": ["STAFF_ID"]
+      },
+      {
+        "name": "STORE_ADDRESS_FK",
+        "column_names": ["ADDRESS_ID"],
+        "reference_table": "ADDRESS",
+        "reference_column": ["ADDRESS_ID"]
+      }
+    ],
+    "indexes": []
   }
 }
