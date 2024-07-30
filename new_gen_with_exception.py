@@ -348,6 +348,7 @@ def generate_controller_class(db_structure, output_dir, table_index, package_nam
     except Exception as e:
         print(f"Error generating controller class: {e}")
         
+
 def generate_exception_mapper_class(output_dir, package_name):
     try:
         exception_dir = os.path.join(output_dir, 'exception')
@@ -404,15 +405,29 @@ def generate_exception_mapper_class(output_dir, package_name):
             f.write("    }\n")
             f.write("}\n")
 
-        print("Generated ExceptionMapper class successfully")
+        resource_not_found_exception_path = os.path.join(exception_dir, "ResourceNotFoundException.java")
+        with open(resource_not_found_exception_path, 'w') as f:
+            f.write(f"package {package_name}.exception;\n\n")
+            f.write("public class ResourceNotFoundException extends RuntimeException {\n")
+            f.write("    private static final long serialVersionUID = 1L;\n\n")
+            f.write("    public ResourceNotFoundException(String message) {\n")
+            f.write("        super(message);\n")
+            f.write("    }\n\n")
+            f.write("    public ResourceNotFoundException(String message, Throwable cause) {\n")
+            f.write("        super(message, cause);\n")
+            f.write("    }\n")
+            f.write("}\n")
+
+        print("Generated ExceptionMapper and ResourceNotFoundException classes successfully")
     except Exception as e:
-        print(f"An error occurred while generating the ExceptionMapper class: {e}")
+        print(f"An error occurred while generating the exception classes: {e}")
 
 # Define the output directory for generated classes
 output_dir = "generated_classes"
 
 # Define the package name for the generated classes
 package_name = "com.example.demo"
+
 
 # Generate ExceptionMapper class
 generate_exception_mapper_class(output_dir, package_name)
