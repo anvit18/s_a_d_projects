@@ -1,0 +1,55 @@
+{
+    "TableName": {
+        "columns": [
+            {
+                "name": "id",
+                "type": "integer",
+                "nullable": false,
+                "default": null,
+                "autoincrement": true,
+                "comment": "Primary key",
+                "identity": {
+                    "start": 1,
+                    "increment": 1
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "nullable": false,
+                "default": null,
+                "autoincrement": false,
+                "comment": "Name of the person",
+                "identity": null
+            },
+            {
+                "name": "age",
+                "type": "integer",
+                "nullable": true,
+                "default": null,
+                "autoincrement": false,
+                "comment": null,
+                "identity": null
+            }
+        ],
+        "primary_keys": {
+            "name": "primary_key_name",
+            "constrained_columns": ["id"]
+        },
+        "foreign_keys": [
+            {
+                "name": "fk_table_name",
+                "columns": ["id"],
+                "referenced_table": "other_table",
+                "referenced_columns": ["other_id"]
+            }
+        ],
+        "indexes": [
+            {
+                "name": "index_name",
+                "columns": ["name"],
+                "unique": true
+            }
+        ]
+    }
+}
