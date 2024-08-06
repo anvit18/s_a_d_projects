@@ -1,0 +1,79 @@
+{
+    "Department": {
+        "columns": [
+            {
+                "name": "DepartmentID",
+                "type": "INT",
+                "default": null,
+                "comment": null,
+                "nullable": false,
+                "autoincrement": true
+            },
+            {
+                "name": "DepartmentName",
+                "type": "NVARCHAR(50)",
+                "default": null,
+                "comment": null,
+                "nullable": false,
+                "autoincrement": false
+            }
+        ],
+        "primary_keys": {
+            "constrained_columns": [
+                "DepartmentID"
+            ],
+            "name": null
+        },
+        "foreign_keys": [],
+        "indexes": []
+    },
+    "Employee": {
+        "columns": [
+            {
+                "name": "EmployeeID",
+                "type": "INT",
+                "default": null,
+                "comment": null,
+                "nullable": false,
+                "autoincrement": true
+            },
+            {
+                "name": "EmployeeName",
+                "type": "NVARCHAR(50)",
+                "default": null,
+                "comment": null,
+                "nullable": false,
+                "autoincrement": false
+            },
+            {
+                "name": "DepartmentID",
+                "type": "INT",
+                "default": null,
+                "comment": null,
+                "nullable": true,
+                "autoincrement": false
+            }
+        ],
+        "primary_keys": {
+            "constrained_columns": [
+                "EmployeeID"
+            ],
+            "name": null
+        },
+        "foreign_keys": [
+            {
+                "name": "FK_Employee_Department",
+                "constrained_columns": [
+                    "DepartmentID"
+                ],
+                "referred_schema": null,
+                "referred_table": "Department",
+                "referred_columns": [
+                    "DepartmentID"
+                ],
+                "options": {}
+            }
+        ],
+        "indexes": []
+    }
+}
