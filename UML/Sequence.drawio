@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.6">
+  <diagram name="Page-1" id="g54H19qMrHzLdttnRkkw">
+    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <object label="" id="0">
+          <mxCell />
+        </object>
+        <mxCell id="1" parent="0" />
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="90" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-9" value="GUI Application" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="150" y="40" width="100" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-16" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-9" vertex="1">
+          <mxGeometry x="40" y="60" width="20" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-24" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-9" vertex="1">
+          <mxGeometry x="40" y="240" width="20" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-25" value="Compiles Json" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="YxI2lcCNB74xCb-hTdrB-9" target="YxI2lcCNB74xCb-hTdrB-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="220" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="85" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-10" value="Database&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="270" y="40" width="100" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-35" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-10" vertex="1">
+          <mxGeometry x="45" y="100" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-11" value="Python Script" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="400" y="40" width="100" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-27" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-11" vertex="1">
+          <mxGeometry x="40" y="290" width="20" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-18" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-11" vertex="1">
+          <mxGeometry x="40" y="80" width="20" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-12" value="Java Classes" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="550" y="40" width="100" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-29" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-12" vertex="1">
+          <mxGeometry x="40" y="340" width="20" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-13" value="Postman" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="700" y="40" width="100" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-32" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="YxI2lcCNB74xCb-hTdrB-13" vertex="1">
+          <mxGeometry x="40" y="440" width="20" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-17" value="Enters the Connection&amp;nbsp;&lt;div&gt;string&lt;/div&gt;" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="120" as="sourcePoint" />
+            <mxPoint x="190" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-19" value="Pass the Conection String" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" source="YxI2lcCNB74xCb-hTdrB-16" target="YxI2lcCNB74xCb-hTdrB-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="125" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-23" value="Return the created Json" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="240" as="sourcePoint" />
+            <mxPoint x="200" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-26" value="Manualy modify Json" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.5484" y="10" width="60" relative="1" as="geometry">
+            <mxPoint x="60" y="120" as="sourcePoint" />
+            <mxPoint x="190" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="60" y="300" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-28" value="Creates Generate Request" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;curved=0;rounded=0;" parent="1" source="YxI2lcCNB74xCb-hTdrB-24" target="YxI2lcCNB74xCb-hTdrB-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="320" as="sourcePoint" />
+            <mxPoint x="430" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-30" value="Generate Classes" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="390" as="sourcePoint" />
+            <mxPoint x="590" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-31" value="Return API Logs in Json&amp;nbsp;&amp;nbsp;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="450" as="sourcePoint" />
+            <mxPoint x="200" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-33" value="Test the Apilogs" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="290" as="sourcePoint" />
+            <mxPoint x="740" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="60" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-34" value="Return the API response" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="180" as="targetPoint" />
+            <mxPoint x="740" y="540" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="30" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-36" value="Connecting" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=5;" parent="1" target="YxI2lcCNB74xCb-hTdrB-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="145" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YxI2lcCNB74xCb-hTdrB-37" value="True" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=-5;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="200" as="targetPoint" />
+            <mxPoint x="330" y="200" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
