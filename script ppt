@@ -1,0 +1,62 @@
+Data API Generator Script
+
+Slide 1
+**Good afternoon, everyone.** We are the Chennai Rangers, a team of Batch 3 interns at Wells Fargo under the CTHLT domain. Today, we're excited to present our tool, the **Data API Generator**. 
+
+I’m Anvit Pawar, and joining me are my teammates Sanskriti Garg and Dherya Rana. Let's dive into the innovative solution we've developed.
+
+Slide 2
+Let's dive into the problem we aimed to solve. Traditionally, developers spend a significant amount of time manually writing and managing relationships between different APIs, particularly when dealing with complex one-to-many or many-to-one relationships. This process is not only time-consuming but also prone to inconsistencies, as each developer may approach the task differently, leading to variations in code standardization. Additionally, every time a developer—whether new or experienced—attempts to update or modify the code, they must first conduct a comprehensive analysis of the data model. This constant need for re-evaluation further complicates and delays API generation.
+
+Slide 3 & 4
+After analyzing the problem, we set out to develop a solution: an automated API generator tool. Our goal was to create a scalable, microservice-driven tool that seamlessly integrates into an orchestrated system like the Orchestra Modern App Template, adhering to enterprise standards.
+
+Our tool generates boilerplate code for APIs and offers a developer-friendly UI that simplifies the process, even for those unfamiliar with database systems. It also provides ready-made documentation, facilitating easy testing in RESTful clients. By automating the entire process—from code generation to relationship mapping, endpoint creation, and exception handling—we eliminate manual intervention, ensuring accuracy and consistency.
+
+The key benefit is the significant reduction in time-to-market. For example, based on our research and team surveys, our tool can save up to 18 hours for complex use cases and 8 to 12 hours for simpler ones. This efficiency makes our solution a game-changer for API development.
+
+Slide 5
+Now that we understand our solution, let's walk through our implementation approach. 
+
+First, we'll extract the data model schema, either from a DB string or directly from JSON. Next, we automate the generation of essential components in the automation framework—this includes creating entities, controllers, repositories, services and exception classes within the Spring Boot backend. 
+
+Following this, we instantiate the API, ensuring it adheres to RESTful principles. We'll automatically handle one-to-many, many-to-one, and many-to-many relationships. The final step involves providing comprehensive API documentation through a developer-focused UI, complete with built-in exception handling. This is our systematic approach to implementing the API generator tool.
+
+Lets understand this flow better with the help of diagrams, over to Sanskriti
+
+Slide 6,7,8
+
+
+Slide 9
+Rest Client - POSTMAN
+Coding Languages - Python, Java
+UI - Tkinter
+Version Control - GitHub
+Backend Framework - SpringBoot
+DB - JSON, ms sql
+
+Slide 10
+Let me share some of the challenges we faced. Due to the limited timeframe, we were unable to obtain full access to all the necessary tools, particularly MSSQL, which restricted our testing scope. As a result, we had to rely on guidance from mentors to finalize the testing and prepare the app.
+
+Despite these challenges, our tool presents significant opportunities. First, we haven't identified any direct competitors, giving us a unique position in the market. Additionally, our tool is polyglot, meaning it can work across various tech stacks, not just the ones we've demonstrated. It also supports data-agnostic APIs, allowing it to handle different databases—whether MSSQL, MongoDB, or others—making it versatile and adaptable.
+
+Slide 11
+Let’s discuss the non-functional requirements of our application. 
+
+First, we’ve implemented robust exception handling that not only resolves basic errors but also identifies and manages all exceptions effectively. Next, we’ve incorporated log handling to streamline API documentation and facilitate testing. Our automated approach ensures uniformity across the codebase, eliminating inconsistencies due to manual intervention.
+
+Security and authentication are also key priorities—we only access the database credentials provided by the user, and these remain password-protected, ensuring that we never have direct access to the password. Additionally, our tool is designed for portability and interoperability, making it polyglot-friendly and capable of supporting multiple tech stacks and databases seamlessly.
+
+These are some of the non-functional requirements we’ve already implemented, with more planned as we continue to develop the tool.
+
+Slide 12
+Now, let's look at the future scope of our application. First, we plan to make it a microservice extension within the Orchestra architecture, enabling Haskell-less development. In the demo, you’ll see that users can edit and modify the JSON or data model. We aim to extend this by integrating UML diagrams for schema manipulation, providing an entity transformation feature in the UI to give developers greater flexibility.
+
+Our tool will continue to support data-agnostic APIs, and we plan to add functionality for auto-importing necessary libraries and dependencies. Additionally, we will incorporate boilerplate code for vault access keys, ensuring that developers don’t have to worry about managing passwords or risking exposure of sensitive information.
+
+Slide 13, 14, 15
+
+Slide 16
+I would like to take this moment and thank the entire team for giving this great experience and we look forward to many such experiences further ahead
+We collectively thank (table names) for their constant support and motivation.
+
